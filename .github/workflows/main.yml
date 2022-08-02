@@ -25,13 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         
-      - name: debugging
-        run: echo $GITHUB_WORKSPACE
-        
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: $GITHUB_WORKSPACE
+          local: /home/runner/work/status-monitor-server/status-monitor-server
           remote: scp/home/sander/Status-server
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
