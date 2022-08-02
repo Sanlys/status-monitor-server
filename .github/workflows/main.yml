@@ -29,7 +29,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: /home/runner/work/status-monitor-server/status-monitor-server
-          remote: scp/home/sander/Status-server
+          remote: Status-server
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
