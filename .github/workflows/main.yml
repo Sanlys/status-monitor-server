@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         
-      - name: Copy folder content recursively to remote
+      - name: Copy repo to remote server
         uses: garygrossgarten/github-action-scp@release
         with:
           local: /home/runner/work/status-monitor-server/status-monitor-server
@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
         
-      - name: executing remote ssh commands using password
+      - name: Restart the status-server systemd service on remote server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
